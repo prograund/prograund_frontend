@@ -1,38 +1,374 @@
-.App {
-  text-align: center;
+:root {
+  --color-1: #0f0021;
+  --color-2: #00002c;
+  --color-3: #fcb045;
+  --color-4: #23d18b;
+  --color-5: #29b8db;
+  --color-6: #03a4cd;
+
+/* 
+  --color-8: rgb(117, 79, 229);
+  --color-9: rgb(165, 72, 196);
+  --color-7: rgb(213, 65, 162); */
+
+
+  --story-line: linear-gradient(to right, var(--color-3), var(--color-4));
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  letter-spacing: -1.5px;
+}
+code{
+  color: var(--color-5);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  /* background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236)); */
+  background-color: var(--color-1);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.aside {
+  background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  background-color: var(--color-1);
+  background: transparent;
+  height: 100vh;
+  order: 1;
+}
+
+.sidebar-sticky {
+  background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  background-color: var(--color-1);
+}
+
+
+#sidebarMenu {
+  background-color: var(--color-1);
+  background: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.sidebar {
+  background-color: var(--color-1);
+}
+
+.nav-div {
+  background-color: var(--color-2);
+  font-size: 20px;
+  margin: auto;
+}
+
+.nav a {
+  color: var(--color-5);
+}
+
+.nav-div svg {
+  margin-right: 15px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: var(--color-4);
+}
+
+.main-image {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.main-image svg {
+  width: 30rem;
+  height: 150px;
+  margin: 20px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.links a {
+  font-size: 20px;
+  color: var(--color-5);
+}
+
+.main {
+  border-left: 2px solid var(--color-5);
+  border-right: 2px solid var(--color-5);
+  margin: 0;
+  order: 2;
+}
+
+.raside {
+  order: 3;
+}
+
+.links {
+  height: 5rem;
+  border-bottom: 2px solid var(--color-5);
+  margin: 0;
+}
+
+.green {
+  background-color: var(--color-4);
+  height: 3px;
+  margin: 0 auto;
+  width: 70%;
+  border-radius: 2px;
+  display: none;
+}
+
+.links a:hover .green {
+  display: block;
+}
+
+.links a:hover {
+  text-decoration: none;
+}
+
+.input-group-append button {
+  margin: 0;
+  border: none;
+  outline: none;
+
+  &:hover {
+      background-color: var(--color-2);
   }
-  to {
-    transform: rotate(360deg);
+
+  &:focus {
+      box-shadow: none;
+  }
+
+  &:active svg {
+      background-color: var(--color-2);
+      box-shadow: none;
+      color: var(--color-4);
+  }
+}
+
+.input-group input {
+  margin: 10px auto;
+  border: none;
+  background-color: var(--color-2);
+  margin: 0;
+  width: 80%;
+  padding: 10px;
+  outline: none;
+  color: var(--color-5);
+
+  &::placeholder {
+      color: var(--color-5);
+  }
+}
+
+.input-group input:focus {
+  outline: none !important;
+  color: var(--color-5);
+  box-shadow: none;
+  /* Add this line to remove box shadow */
+  background: var(--color-2);
+  border: none;
+}
+
+.input-group {
+  background-color: var(--color-2);
+  border: 1px solid var(--color-5);
+  border-radius: 20px;
+  width: 95%;
+  margin: auto;
+}
+
+.main-body {
+  height: 90vh;
+  margin: auto;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
+.main-body::-webkit-scrollbar {
+  display: none;
+}
+
+.profile {
+  background: var(--color-2);
+  color: var(--color-5);
+  text-align: center;
+  border-radius: 15px !important;
+}
+
+.profile img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 20px auto;
+  border: 3px solid var(--color-2);
+  outline: 2px solid var(--color-3);
+}
+
+.profile p {
+  font-size: 15px;
+}
+
+.support-button {
+  background-color: var(--color-1);
+  border: 2px solid var(--color-5);
+  border-radius: 50%;
+  color: var(--color-4);
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  font-size: 20px;
+  outline: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:active {
+      background-color: var(--color-2);
+      color: var(--color-4);
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .nav-div {
+      font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-div {
+      font-size: 13px;
+  }
+  .main-image svg{
+    width: 300px;
+    height: 140px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .nav-div svg {
+      width: 15px;
+      margin-right: 5px;
+  }
+  .main-image svg{
+    width: 250px;
+    height: 120px;
+  
+  }
+}
+
+@media screen and (max-width: 1010px) {
+  .nav-div {
+      font-size: 13px;
+      width: 100%;
+  }
+  .main-image svg{
+    width: 200px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .aside,
+  .sidebar-sticky {
+      all: unset;
+  }
+  .main-image svg{
+    width: 200px;
+    height: 100px;
+  }
+  .aside{
+    width: 100vw;
+  }
+  .navbar-mobile{
+    display: block;
+  }
+  .main {
+      border-left: none;
+      border-right: none;
+      order: 3;
+  }
+
+  .raside {
+      display: none;
+  }
+
+  .screen {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .main-image {
+      width: 35%;
+      margin: 0 10px;
+      margin-bottom: 0 !important;
+  }
+
+  .main-body {
+      height: 83.5vh;
+      padding: 0;
+  }
+
+  .nav-div {
+      width: 100%;
+      margin: auto;
+      text-align: center;
+      font-size: 20px;
+  }
+
+  #sidebarMenu {
+      border-radius: 0;
+  }
+
+  .links a {
+      font-size: 15px;
+  }
+
+  .raside {
+      border-left: none;
+  }
+
+  .green {
+      width: 50%;
+      height: 2px;
+      border-radius: 2px;
+  }
+
+  .post{
+      width: 100vw;
+      margin: 10px;
+      margin-top: 15px!important;
+      padding: 10px!important;
+  }
+  .post >p{
+      font-size: 12px;
+      width: 100%;
+      margin-top: 15px!important;
+  }
+
+  .navbar-toggler {
+      color: var(--color-5);
+      background-color: var(--color-1);
+      border: 2px solid var(--color-5) !important;
+      border-radius: 7px;
+      outline: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+  }
+
+  .nav-div svg {
+      width: 20px;
+      margin-right: 5px;
+  }
+
+  .links {
+      height: 3rem;
+  }
+
+  .not-in-mobile {
+      display: none;
   }
 }
