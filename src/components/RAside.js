@@ -16,7 +16,7 @@ export default function RAside() {
             </div>
             <div className="not-in-mobile">
                 <div className="card m-4 rounded-lg profile">
-                    <img src="profile.png" alt=""/>
+                    <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt=""/>
                     <h3>ProGraund</h3>
                     <p>A Space only for programmers</p>
                 </div>

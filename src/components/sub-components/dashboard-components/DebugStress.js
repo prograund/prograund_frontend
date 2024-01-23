@@ -1,26 +1,12 @@
 import React from 'react'
 
-export default function Body() {
+export default function DebugStress() {
   return (
-        <>
-        <div className="main col-md-6 p-0">
-            <div className="links d-flex justify-content-around align-items-center">
-                <a href="/">
-                    Debug Stress
-                    <hr className="green"/>
-                </a>
-                <a href="/">
-                    Inspect World
-                    <hr className="green"/>
-                </a>
-            </div>
-            <div className="main-body">
-            
-           
-                <div className="post card p-3 col-md-10 col-ms-12 m-auto" style={{borderRadius: "20px",backgroundColor: "var(--color-2)"}}>
+    <>
+        <div className="post card p-3 col-md-10 col-ms-12 m-auto" style={{borderRadius: "20px",backgroundColor: "var(--color-2)"}}>
                     <div className="" style={{display: "flex",justifyContent: "space-between"}}>
                         <div className="d-flex">
-                            <img src="profile.png" alt="" style={{width: "60px", height: "60px", borderRadius: "50%", outline: "2px solid var(--color-3)", marginRight: "15px",border: "3px solid var(--color-2)"}}/>
+                            <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width: "60px", height: "60px", borderRadius: "50%", outline: "2px solid var(--color-3)", marginRight: "15px",border: "3px solid var(--color-2)"}}/>
                         <div className="user-info">
                             <h5 className="m-0" >ProGraund</h5>
                             <p className="m-0">2 hours ago</p>
@@ -56,11 +42,6 @@ export default function Body() {
                 </div>
                 <br/>
                 
-     
-
-            </div>
-
-        </div>
     </>
   )
 }

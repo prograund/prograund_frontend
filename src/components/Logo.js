@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-export default function Logo() {
+// importing props
+import PropTypes from "prop-types";
+
+export default function Logo(props) {
+    const [color, setColor] = useState(props.color);
+
+
     return (
         <>
             <div className="p-0 m-0">
@@ -14,7 +20,7 @@ export default function Logo() {
                 >
                     <g
                         transform="translate(0.000000,1080.000000) scale(0.100000,-0.100000)"
-                        fill="#29b8db"
+                        fill={color}
                         stroke="none"
                     >
                         <path
