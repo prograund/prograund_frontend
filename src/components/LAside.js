@@ -16,7 +16,7 @@ export default function LAside() {
                 <Logo color="#29b8db" />
               </div>
             <nav id="sidebarMenu" className="col-md-9 m-auto d-md-block bg-light sidebar collapse">
-                <div className="sidebar-sticky">
+                <div className="sidebar-sticky navbar-collapse">
                     <ul className="nav nav-div flex-column">
                         <li className="nav-item my-2">
                             <Link className="nav-link active" to="/dashboard">
