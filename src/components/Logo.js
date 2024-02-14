@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 
-// importing props
-import PropTypes from "prop-types";
-
 export default function Logo(props) {
-    const [color, setColor] = useState(props.color);
+    const [color] = useState(props.color);
 
 
     return (
