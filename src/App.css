@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100&display=swap');
+
 :root {
   --color-1: #0f0021;
   --color-2: #00002c;
@@ -16,19 +18,20 @@
 }
 
 * {
-  letter-spacing: -1.5px;
+  font-family: 'Encode Sans', sans-serif;
+  letter-spacing: 0;
+  font-weight: 600;
 }
-code{
-  color: var(--color-5);
-}
+
 
 body {
   /* background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236)); */
   background-color: var(--color-1);
+  color: var(--color-5)!important;
 }
 
 .aside {
-  background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  /* background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236)); */
   background-color: var(--color-1);
   background: transparent;
   height: 100vh;
@@ -36,7 +39,7 @@ body {
 }
 
 .sidebar-sticky {
-  background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236));
+  /* background-image: linear-gradient(140deg, rgb(207, 47, 152), rgb(106, 61, 236)); */
   background-color: var(--color-1);
 }
 

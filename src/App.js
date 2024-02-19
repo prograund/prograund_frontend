@@ -18,7 +18,7 @@ import InspectWorld from './components/sub-components/dashboard-components/Inspe
 function App() {
   return (
     <>
-      <code>
+      
         <Router>
     <div className="screen d-flex"> 
       {/* <Navbar/> */}
@@ -52,7 +52,7 @@ function App() {
       </svg>
     </a>
     </Router>
-    </code>
+    
     </>
   );
 }

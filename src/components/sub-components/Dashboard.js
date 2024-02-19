@@ -1,7 +1,5 @@
 import React from 'react'
-import { Link, Routes, Route, Outlet } from 'react-router-dom'
-import DebugStress from './dashboard-components/DebugStress'
-import InspectWorld from './dashboard-components/InspectWorld'
+import { Link, Outlet } from 'react-router-dom'
 
 
 export default function Dashboard() {
