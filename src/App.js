@@ -8,7 +8,6 @@ import Host from './components/sub-components/Host';
 import Inbox from './components/sub-components/Inbox';
 import Tracks from './components/sub-components/Tracks';
 import Docs from './components/sub-components/Docs';
-import TechSupport from './components/sub-components/TechSupport';
 import Dashboard from './components/sub-components/Dashboard';
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -45,7 +44,7 @@ function App() {
                 <Route path="trackings" element={<Trackings/>}/>
               </Route>
               <Route path="/docs" element={<Docs/>}/>
-              <Route path="/tech-support" element={<TechSupport/>}/>
+              <Route path="*" element={<Dashboard/>}/>
             </Routes>
           </div>
           <RAside/>
