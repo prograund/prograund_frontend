@@ -5,11 +5,15 @@ export default function InspectWorld() {
   const url = 'http://127.0.0.1:8000/posts/';
 
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     const response = await fetch(url);
     const data = await response.json();
-    setPosts(data);
+
+    const maindata = data.filter((item) => item.type === "Professional")
+    setPosts(maindata);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -18,11 +22,19 @@ export default function InspectWorld() {
 
   return (
     <>
-      {posts.map((item) => (
-        <div className="post" key={item.post_id}>
-          <PostItem title={item.title}/>
-        </div>
-      ))}
+      {loading ? (
+          <div className="col-md-12 d-flex justify-content-center">
+            <div className="spinner-border text-info m-auto" role="status">
+              <span className="visually-hidden"></span>
+            </div>
+          </div>
+      ) : (
+        <>
+          {posts.map((item) => (
+            <div key={item.post_id}><PostItem title={item.title} /></div>
+          ))}
+        </>
+      )}
     </>
   );
 }

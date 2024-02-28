@@ -5,7 +5,7 @@ export default function PostItem(props) {
     let {title,image_link} = props;
   return (
     <>
-        <div className="post card p-3 col-md-10 col-ms-12 m-auto" style={{borderRadius: "20px",backgroundColor: "var(--color-2)"}}>
+        <div className="post p-3 card col-md-10 col-sm-12 m-auto" style={{borderRadius: "20px",backgroundColor: "var(--color-2)"}}>
                     <div className="" style={{display: "flex",justifyContent: "space-between"}}>
                         <div className="d-flex">
                             <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width: "60px", height: "60px", borderRadius: "50%", outline: "2px solid var(--color-3)", marginRight: "15px",border: "3px solid var(--color-2)"}}/>
@@ -16,13 +16,17 @@ export default function PostItem(props) {
                         </div>
                         </div>
                         <div className="tracker">
-                            <button className="h5" style={{color: "var(--color-1)",backgroundColor: "var(--color-4)",fontWeight: "900!important",border: "none",outline: "none", borderRadius: "5px", padding: "8px",}}>
-                                <b>Track</b>
+                            <button style={{color: "var(--color-1)",backgroundColor: "var(--color-4)",border: "none",outline: "none", borderRadius: "5px", padding: "8px",}}>
+                                <h6 style={{fontWeight:'800',marginBottom:'0',fontFamily:'fira code'}}><b>TRACK</b></h6>
                             </button>
                         </div>
 
                     </div>
-                    <p className="col-md-11 col-ms-12 m-auto">{title}</p>
+                    <p className="col-md-11 col-ms-12 m-auto">
+                        {title.split('\n').map((line, index) => (
+                            <span key={index}>{line}<br /></span> 
+                        ))}
+                    </p>
                     <img src={image_link} className="col-md-10 m-auto " alt=""/>
                     <div className="actions d-flex justify-content-between mx-2 my-2">
                         <button style={{background: "transparent",border: "none"}}>
@@ -51,5 +55,5 @@ export default function PostItem(props) {
 
 PostItem.defaultProps = {
     title: "This is a test post",
-    image_link: "https://source.unsplash.com/random/400x400"
+    // image_link: "https://source.unsplash.com/random/400x400"
 }

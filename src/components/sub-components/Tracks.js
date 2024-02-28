@@ -5,11 +5,11 @@ export default function Tracks() {
   return (
     <>
       <div className="links d-flex justify-content-around align-items-center">
-        <Link to="/tracks/trackers">
+        <Link className='on-hover-green' to="/tracks/trackers">
           Trackers
           <hr className="green" />
         </Link>
-        <Link to="/tracks/trackings">
+        <Link className='on-hover-green' to="/tracks/trackings">
           Trackings
           <hr className="green" />
         </Link>

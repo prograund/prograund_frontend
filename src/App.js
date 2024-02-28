@@ -17,6 +17,10 @@ import InspectWorld from './components/sub-components/dashboard-components/Inspe
 import Trackers from './components/sub-components/track-components/Trackers';
 import Trackings from './components/sub-components/track-components/Trackings';
 
+import Snippets from './components/sub-components/my-profile/Snippets';
+import JoySources from './components/sub-components/my-profile/JoySources';
+import Mentions from './components/sub-components/my-profile/Mentions';
+
 function App() {
   return (
     <>
@@ -24,7 +28,7 @@ function App() {
         <div className="screen d-flex"> 
           {/* <Navbar/> */}
           <LAside />
-          <div className="main col-md-6 p-0">
+          <div className="main col-md-6 p-0" style={{height:'100vh',overflowY:'scroll',overflowX:'hidden'}}>
             <Routes>
               <Route path="/" element={<Dashboard/>}>
                 <Route index element={<DebugStress/>}/>
@@ -35,7 +39,12 @@ function App() {
                 <Route path="inspect-world" element={<InspectWorld/>}/>
               </Route>
               <Route path="/configuration" element={<Configuration/>}/>
-              <Route path="/my-profile" element={<MyProfile/>}/>
+              <Route path="/my-profile" element={<MyProfile/>}>
+                <Route index element={<Snippets/>}/>
+                <Route path="snippets" element={<Snippets/>}/>
+                <Route path="joy-source" element={<JoySources/>}/>
+                <Route path="mentions" element={<Mentions/>}/>
+              </Route>
               <Route path="/host" element={<Host/>}/>
               <Route path="/inbox" element={<Inbox/>}/>
               <Route path="/tracks" element={<Tracks/>}>

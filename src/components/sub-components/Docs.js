@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 export default function Docs() {
   return (
     <>
+      <h1 className='ml-4 mt-4 font-weight-bolder ' style={{ fontSize: "40px" }}>Docs</h1>
+      <hr style={{backgroundColor: "var(--color-5)",height: "2px",border: "none",borderRadius: "10px",margin: "0",marginBottom:'15px'}} />
       <div className="container p-4">
-        <h1 className="text-center">Docs</h1>
         <div className="row p-auto m-auto d-flex justify-content-center">
           <div className="card mx-1 my-3" style={{ width: "18rem", backgroundColor: "var(--color-2)" }}>
             <img src="https://i.imgur.com/RYaE2J0.jpeg" className="card-img-top" alt="..." />
