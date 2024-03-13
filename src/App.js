@@ -21,6 +21,8 @@ import Snippets from './components/sub-components/my-profile/Snippets';
 import JoySources from './components/sub-components/my-profile/JoySources';
 import Mentions from './components/sub-components/my-profile/Mentions';
 
+import Register from './components/sub-components/Register';
+
 function App() {
   return (
     <>
@@ -54,6 +56,7 @@ function App() {
               </Route>
               <Route path="/docs" element={<Docs/>}/>
               <Route path="*" element={<Dashboard/>}/>
+              <Route path="/register" element={<Register/>}/>
             </Routes>
           </div>
           <RAside/>
