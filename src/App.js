@@ -21,6 +21,8 @@ import Mentions from './components/sub-components/my-profile/Mentions';
 
 import Register from './components/sub-components/Register';
 import Main from './components/Main';
+import Login from './components/sub-components/Login';
+import HostDocs from './components/sub-components/HostDocs';
 
 function App() {
   return (
@@ -45,6 +47,7 @@ function App() {
                   <Route path="mentions" element={<Mentions/>}/>
                 </Route>
                 <Route path="/host" element={<Host/>}/>
+                <Route path="/host-doc" element={<HostDocs/>}/>
                 <Route path="/inbox" element={<Inbox/>}/>
                 <Route path="/tracks" element={<Tracks/>}>
                   <Route index element={<Trackers/>}/>
@@ -55,6 +58,7 @@ function App() {
                 <Route path="*" element={<Dashboard/>}/>
                 </Route>
               <Route path="/register" element={<Register/>}/>
+              <Route path="/login" element={<Login/>}/>
             </Routes>
       </Router>
     </>

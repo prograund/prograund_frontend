@@ -2,9 +2,13 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import LAside from './LAside'
 import RAside from './RAside'
+import { Navigate } from 'react-router-dom';
 
 
 export default function Main() {
+  if(sessionStorage.getItem("sessionId") === null){
+    return <Navigate to="/login" />
+  }
   return (
     <>
  

@@ -424,6 +424,16 @@ a:hover {
       margin-top: 15px!important;
   }
 
+  .prm-btn{
+    background-color: var(--color-5);
+    padding: 10px;
+  }
+
+
+  textarea{
+    resize: vertical;
+  }
+
   .navbar-toggler {
       color: var(--color-5);
       background-color: var(--color-1);

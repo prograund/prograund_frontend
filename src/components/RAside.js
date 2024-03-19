@@ -1,6 +1,10 @@
 import React from 'react'
 
 export default function RAside() {
+  const logout = () => {
+    sessionStorage.removeItem("sessionId");
+    window.location = "/login";
+  }
   return (
     <>
         <div className="raside fixed-right r-0 col-md-3 p-0">
@@ -13,6 +17,10 @@ export default function RAside() {
                       </svg>
                   </button>
                 </div>
+            </div>
+            <div className="container d-flex justify-content-end px-5">
+            <button className='btn not-in-mobile p-2 text-center' onClick={logout} style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px"}}>Logout</button>
+
             </div>
             <div className="not-in-mobile">
                 <div className="card m-4 rounded-lg profile">

@@ -1,26 +1,45 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
 import { Link } from "react-router-dom";
+import DocsItem from "./docs-component/DocsItem";
 
 export default function Docs() {
+  const url = "http://127.0.0.1:8000/docs/";
+
+  const [docs, setDocs] = useState([{}]);
+
+  const getDocs = ()=>
+  {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+      setDocs(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    }
+    )
+  }
+
+  useEffect(() => {
+    getDocs();
+  }
+  ,[]);
+
   return (
     <>
       <h1 className='ml-4 mt-4 font-weight-bolder ' style={{ fontSize: "40px" }}>Docs</h1>
       <hr style={{backgroundColor: "var(--color-5)",height: "2px",border: "none",borderRadius: "10px",margin: "0",marginBottom:'15px'}} />
+      <div className="d-flex justify-content-end">
+        <Link to="/host-doc" className="btn mx-2" style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",padding: "10px",borderRadius: "5px",fontSize: "15px"}}><b>Host Docs</b></Link>
+      </div>
       <div className="container p-4">
         <div className="row p-auto m-auto d-flex justify-content-center">
-          <div className="card mx-1 my-3" style={{ width: "18rem", backgroundColor: "var(--color-2)" }}>
-            <img src="https://i.imgur.com/RYaE2J0.jpeg" className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-              </p>
-              <Link to="/" className="btn btn-primary" style={{ color: "var(--color-1)", backgroundColor: "var(--color-5)", letterSpacing: "1px", fontWeight: "900!important", border: "none", outline: "none", borderRadius: "5px", padding: "8px", }}>
-                <b>Read Docs</b>
-              </Link>
-            </div>
-          </div>
+          {docs.map((doc,index) => (
+            <DocsItem title={doc.title} key={index} id={doc.article_id} />
+            
+          )
+          )}
         </div>
       </div>
     </>

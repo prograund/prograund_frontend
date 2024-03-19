@@ -74,7 +74,7 @@ export default function Host() {
           body: JSON.stringify({
             title: data.get("title"),
             type: data.get("type"),
-            user_id: 1,
+            user_id: sessionStorage.getItem("sessionId"),
             likes_count: 0,
             share_count: 0,
           }),

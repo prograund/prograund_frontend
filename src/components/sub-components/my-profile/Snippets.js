@@ -6,13 +6,6 @@ export default function Snippets() {
     <>
         <PostItem title='this is a test snippet' />
         <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
-        <PostItem title='this is a test snippet' />
     </>
   )
 }

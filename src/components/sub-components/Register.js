@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import logo from "../../assets/logo.png"
 
 export default function Register() {
+    if(sessionStorage.getItem("sessionId") !== null){
+        window.location.href="/dashboard";
+    }
 
     const [password, setPassword] = useState('');
     const [cpassword, setCPassword] = useState('');
@@ -62,7 +65,6 @@ export default function Register() {
         <>
             <meta charSet="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Document</title>
             <style
                 dangerouslySetInnerHTML={{
                     __html:
@@ -72,9 +74,9 @@ export default function Register() {
 
             <div className="container-fluid d-flex flex-column justify-content-center align-items-center" style={{ height: '100vh' }}>
                 <img src={logo} alt="" />
-                <div className="register-card">
+                <div className="register-card col-md-4">
                     <h1>Register</h1>
-                    <form onSubmit={handleSubmit} method="post">
+                    <form onSubmit={handleSubmit}>
                         <div className="input-group-self">
                             <input className="input" type="text" name="fname" placeholder="First name"  />
                             <input className="input" type="text" name="lname" placeholder="Last name"  />
@@ -100,7 +102,7 @@ export default function Register() {
                         </div>
                         <div className="input-group-self">
                             <input className="input" type="email" name="email" id="" placeholder="Email"  />
-                            <select name="profession" id="" className="input text-dark"  >
+                            <select name="profession" id="" className="input text-dark" style={{color:'white'}} >
                                 <option value="student">Student</option>
                                 <option value="teacher">Teacher</option>
                                 <option value="other">Other</option>
@@ -126,7 +128,7 @@ export default function Register() {
                             type="submit"
                             name="submit"
                             className="login input login-submit"
-                            defaultValue="Register"
+                            value="Sign up"
                         />
                     </form>
                 </div>
