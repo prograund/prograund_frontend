@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 export default function Host() {
+  // const url = "https://mink-keen-equally.ngrok-free.app/posts/";
+  // const fileUrl = "https://mink-keen-equally.ngrok-free.app/posts/savefile";
+  
   const url = "http://127.0.0.1:8000/posts/";
   const fileUrl = "http://127.0.0.1:8000/posts/savefile";
-
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("");
 
@@ -32,6 +34,10 @@ export default function Host() {
           try {
             const response = await fetch(url, {
               method: "POST",
+            //   headers: {
+            //     "ngrok-skip-browser-warning": "1", // Add this header
+            //     // Include other headers as needed
+            // },
               body: JSON.stringify({
                 title: data.get("title"),
                 type: data.get("type"),
@@ -71,6 +77,10 @@ export default function Host() {
       try {
         const response = await fetch(url, {
           method: "POST",
+          headers: {
+            "ngrok-skip-browser-warning": "1", // Add this header
+            // Include other headers as needed
+        },
           body: JSON.stringify({
             title: data.get("title"),
             type: data.get("type"),

@@ -1,18 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function MyProfile() {
+  const user_id = sessionStorage.getItem('sessionId')
+  
+  const url = `http://127.0.0.1:8000/users/`
+
+  const [user, setUser] = useState([{}]);
+
+  useEffect(() => {
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setUser(data.filter((item) => item.id == user_id)[0]);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, [user_id]);
+
+
   return (
     <>
+    
       <div>
         <img src='https://t3.ftcdn.net/jpg/02/68/48/86/360_F_268488616_wcoB2JnGbOD2u3bpn2GPmu0KJQ4Ah66T.jpg' alt='test' style={{width: '100%'}}></img>
       </div>
       <div className='d-flex justify-content-evenly' style={{marginBottom:'-20px'}}>
         <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width:'110px',height:'110px',borderRadius:'50%',position:'relative',top:'-55px',marginLeft:'20px',border:'2px solid transparent',outline:'2px solid var(--color-3)'}}/>
         <div className="mx-3 user-data">
-        <h3 className='mb-0'>John Doe</h3>
-        <h6>User Id</h6>
+        <h3 className='mb-0'>{user.fname} {user.lname}</h3>
+        <h6>{user.username}</h6>
         </div>
       </div>
       <div style={{marginTop:'-30px'}}>

@@ -23,6 +23,7 @@ import Register from './components/sub-components/Register';
 import Main from './components/Main';
 import Login from './components/sub-components/Login';
 import HostDocs from './components/sub-components/HostDocs';
+import ReadDocs from './components/sub-components/ReadDocs';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
                   <Route path="mentions" element={<Mentions/>}/>
                 </Route>
                 <Route path="/host" element={<Host/>}/>
+                <Route path="/read-docs/:id" element={<ReadDocs/>}/>
                 <Route path="/host-doc" element={<HostDocs/>}/>
                 <Route path="/inbox" element={<Inbox/>}/>
                 <Route path="/tracks" element={<Tracks/>}>

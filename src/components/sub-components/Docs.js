@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import DocsItem from "./docs-component/DocsItem";
 
 export default function Docs() {
+  // const url = "https://mink-keen-equally.ngrok-free.app/docs/";
   const url = "http://127.0.0.1:8000/docs/";
 
   const [docs, setDocs] = useState([{}]);
@@ -10,6 +11,7 @@ export default function Docs() {
   const getDocs = ()=>
   {
     fetch(url)
+    
     .then(response => response.json())
     .then(data => {
       console.log('Success:', data);
@@ -36,10 +38,8 @@ export default function Docs() {
       <div className="container p-4">
         <div className="row p-auto m-auto d-flex justify-content-center">
           {docs.map((doc,index) => (
-            <DocsItem title={doc.title} key={index} id={doc.article_id} />
-            
-          )
-          )}
+            <DocsItem title={doc.title} content={doc.content} key={index} id={doc.article_id} />
+          ))}
         </div>
       </div>
     </>

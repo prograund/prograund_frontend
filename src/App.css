@@ -21,6 +21,14 @@
   display: none;
 }
 
+div{
+  font-weight: 100;
+}
+
+#article span{
+  all: unset !important;;
+}
+
 * {
   font-family: Fira Code!important;
   letter-spacing: 0;
@@ -429,6 +437,9 @@ a:hover {
     padding: 10px;
   }
 
+  .writing-pad * {
+    font-weight: 100;
+  }
 
   textarea{
     resize: vertical;

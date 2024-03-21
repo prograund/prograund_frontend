@@ -8,7 +8,7 @@ export default function Register() {
 
     const [password, setPassword] = useState('');
     const [cpassword, setCPassword] = useState('');
-    const url = "http://127.0.0.1:8000/users/";
+    const url = "https://mink-keen-equally.ngrok-free.app/users/";
 
 
     const handlePasswordChange = (e) => {
@@ -30,9 +30,13 @@ export default function Register() {
         const data = new FormData(e.target);
 
         // Send the data to the server
+        if(data.get("lname")===null){
+            data.set('lname','');
+        }
         console.log('fetching');
         await fetch(url, {
             method: 'POST',
+
             body: JSON.stringify({
                 fname: data.get('fname'),
                 lname: data.get('lname'),

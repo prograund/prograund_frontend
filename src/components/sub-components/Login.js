@@ -12,6 +12,10 @@ export default function Login() {
 
         await fetch(url,{
             method: 'POST',
+            // headers: {
+            //     "ngrok-skip-browser-warning": "1", // Add this header
+            //     // Include other headers as needed
+            // },
             body: JSON.stringify({
                 email: data.get("email"),
                 password: data.get("password")
