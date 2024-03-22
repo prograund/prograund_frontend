@@ -4,11 +4,11 @@ import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
 export default function MyProfile() {
-  const user_id = sessionStorage.getItem('sessionId')
+  const user_id = parseInt(sessionStorage.getItem('sessionId'));
   
   const url = `https://mink-keen-equally.ngrok-free.app/users/`
 
-  const [user, setUser] = useState([{}]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     fetch(url,{
@@ -21,7 +21,15 @@ export default function MyProfile() {
     })
       .then(response => response.json())
       .then(data => {
-        setUser(data.filter((item) => item.id === user_id)[0]);
+        const filteredUsers = data.filter((item) => item.id === user_id);
+        if (filteredUsers.length > 0) {
+          setUser(filteredUsers[0]);
+        } else {
+          console.error('User not found');
+          // Optionally set user to null or keep the existing state
+          // setUser(null);
+        }
+      
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -38,8 +46,8 @@ export default function MyProfile() {
       <div className='d-flex justify-content-evenly' style={{marginBottom:'-20px'}}>
         <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width:'110px',height:'110px',borderRadius:'50%',position:'relative',top:'-55px',marginLeft:'20px',border:'2px solid transparent',outline:'2px solid var(--color-3)'}}/>
         <div className="mx-3 user-data">
-        <h3 className='mb-0'>{user.fname} {user.lname}</h3>
-        <h6>{user.username}</h6>
+        <h3 className='mb-0'>{user.fname || 'First Name'} {user.lname || 'Last Name'}</h3>
+        <h6>{user.username || 'Username'}</h6>
         </div>
       </div>
       <div style={{marginTop:'-30px'}}>
