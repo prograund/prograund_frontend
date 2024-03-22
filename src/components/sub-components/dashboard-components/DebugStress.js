@@ -39,7 +39,7 @@ export default function DebugStress() {
       ) : (
         <>
           {posts.map((item) => (
-            (item.type === "Funny")? <div key={item.post_id}><PostItem title={item.title} image_link={item.file}/></div>: null
+            (item.type === "Funny")? <div key={item.post_id}><PostItem title={item.title} time={item.uploaded_time} user_id={parseInt(item.user_id)} image_link={item.file}/></div>: null
           ))}
         </>
       )}

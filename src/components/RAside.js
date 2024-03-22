@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import defaultImage from '../assets/profile.png';
 
 export default function RAside() {
   const logout = () => {
@@ -54,7 +55,10 @@ export default function RAside() {
             </div>
             <div className="not-in-mobile">
                 <div className="card m-4 rounded-lg profile">
-                    <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt=""/>
+                  <div className="profile-img">
+
+                    <img src={user.image? "https://mink-keen-equally.ngrok-free.app/Files/"+user.image : defaultImage} alt="" />
+                  </div>
                     <h4>{user.username}</h4>
             <button className='btn not-in-mobile p-2 text-center' onClick={logout} style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",width:'145px',margin:'5px auto'}}>Logout</button>
             <Link className='btn not-in-mobile p-2 text-center' style={{backgroundColor: "var(--color-3)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",width:'145px',margin:'5px auto'}} to="/edit-profile">Edit Profile</Link>

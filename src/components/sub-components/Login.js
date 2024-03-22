@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from "../../assets/logo.png"
-
+import Swal from 'sweetalert2'
 export default function Login() {
     if(sessionStorage.getItem("sessionId") !== null){
         window.location.href="/dashboard";
@@ -28,14 +28,32 @@ export default function Login() {
                 alert(data.error);
             }else{
                 if(data === "Login Failed"){
-                    alert("Login Failed");
-                    return;
+                    Swal.fire({
+                        title: "Invalid Credentials!",
+                        color: "var(--color-5)",
+                        background: "var(--color-2)",
+                        icon: "error",
+                        showConfirmButton:false,
+                        timer: 3000,
+                        iconColor: "var(--color-5)",
+                      });
                 }
                 else{
 
                     console.log(data);
                     sessionStorage.setItem("sessionId",data.user_id);
-                    window.location.href="/dashboard";
+                    Swal.fire({
+                        title: "Login Successfully!",
+                        color: "var(--color-5)",
+                        background: "var(--color-2)",
+                        icon: "success",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        iconColor: "var(--color-5)",
+                      });
+                    setTimeout(() => {
+                        window.location = "/dashboard";
+                        },3000);
                 }
             }
         })
