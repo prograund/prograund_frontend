@@ -10,7 +10,14 @@ export default function Docs() {
 
   const getDocs = ()=>
   {
-    fetch(url)
+    fetch(url,{
+      method: 'GET',
+      headers: {
+        "ngrok-skip-browser-warning": "1", // Add this header
+        // Include other headers as needed
+      }
+    
+    })
     
     .then(response => response.json())
     .then(data => {

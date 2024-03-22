@@ -25,6 +25,10 @@ export default function Host() {
       try {
         const fileResponse = await fetch(fileUrl, {
           method: "POST",
+          headers: {
+            "ngrok-skip-browser-warning": "1", // Add this header
+            // Include other headers as needed
+        },
           body: formData,
         });
 

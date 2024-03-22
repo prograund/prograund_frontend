@@ -9,7 +9,14 @@ export default function DebugStress() {
   const [loading, setLoading] = useState(true);
 
   const getData = async () => {
-    const response = await fetch(url);
+    const response = await fetch(url,{
+      method: 'GET',
+      headers: {
+        "ngrok-skip-browser-warning": "1", // Add this header
+        // Include other headers as needed
+      }
+    
+    });
     const data = await response.json();
 
     const maindata = data.filter((item) => item.type === "Funny")

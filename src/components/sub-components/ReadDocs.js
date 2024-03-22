@@ -9,7 +9,14 @@ export default function ReadDocs() {
 
     const url = `https://mink-keen-equally.ngrok-free.app/docs/`;
     useEffect(() => {
-        fetch(url)
+        fetch(url,{
+            method: 'GET',
+            headers: {
+              "ngrok-skip-browser-warning": "1", // Add this header
+              // Include other headers as needed
+            }
+          
+          })
         .then(response => response.json())
         .then(data => {
             setDocs(data.filter((item) => item.article_id === id));
