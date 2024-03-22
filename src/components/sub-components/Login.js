@@ -27,9 +27,16 @@ export default function Login() {
             if(data.error){
                 alert(data.error);
             }else{
-                console.log(data);
-                sessionStorage.setItem("sessionId",data.user_id);
-                window.location.href="/dashboard";
+                if(data === "Login Failed"){
+                    alert("Login Failed");
+                    return;
+                }
+                else{
+
+                    console.log(data);
+                    sessionStorage.setItem("sessionId",data.user_id);
+                    window.location.href="/dashboard";
+                }
             }
         })
     }

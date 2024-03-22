@@ -21,7 +21,6 @@ export default function Docs() {
     
     .then(response => response.json())
     .then(data => {
-      console.log('Success:', data);
       setDocs(data);
     })
     .catch((error) => {

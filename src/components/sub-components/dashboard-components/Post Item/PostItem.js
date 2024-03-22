@@ -8,7 +8,7 @@ export default function PostItem(props) {
         <div className="post p-3 card col-md-10 col-sm-12 m-auto" style={{borderRadius: "20px",backgroundColor: "var(--color-2)"}}>
                     <div className="" style={{display: "flex",justifyContent: "space-between"}}>
                         <div className="d-flex">
-                            <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width: "60px", height: "60px", borderRadius: "50%", outline: "2px solid var(--color-3)", marginRight: "15px",border: "3px solid var(--color-2)"}}/>
+                            <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt="" style={{width: "60px", height: "60px", borderRadius: "50%",marginRight: "15px",border: "2px solid var(--color-4)"}}/>
                         <div className="user-info">
                             <h5 className="m-0" >ProGraund</h5>
                             <p className="m-0">2 hours ago</p>
