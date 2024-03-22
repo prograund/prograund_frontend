@@ -56,5 +56,5 @@ export default function PostItem(props) {
 
 PostItem.defaultProps = {
     title: "This is a test post",
-    image_link: "https://source.unsplash.com/random/400x400"
+    // image_link: "https://source.unsplash.com/random/400x400"
 }
