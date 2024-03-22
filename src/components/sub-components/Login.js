@@ -5,17 +5,17 @@ export default function Login() {
     if(sessionStorage.getItem("sessionId") !== null){
         window.location.href="/dashboard";
     }
-    const url = "http://127.0.0.1:8000/auth/";
+    const url = "https://mink-keen-equally.ngrok-free.app/auth/";
     const handleSubmit = async (e) =>{
         e.preventDefault();
         const data = new  FormData(e.target);
 
         await fetch(url,{
             method: 'POST',
-            // headers: {
-            //     "ngrok-skip-browser-warning": "1", // Add this header
-            //     // Include other headers as needed
-            // },
+            headers: {
+                "ngrok-skip-browser-warning": "1", // Add this header
+                // Include other headers as needed
+            },
             body: JSON.stringify({
                 email: data.get("email"),
                 password: data.get("password")

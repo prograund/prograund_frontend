@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import DocsItem from "./docs-component/DocsItem";
 
 export default function Docs() {
-  // const url = "https://mink-keen-equally.ngrok-free.app/docs/";
-  const url = "http://127.0.0.1:8000/docs/";
+  const url = "https://mink-keen-equally.ngrok-free.app/docs/";
+  // const url = "http://127.0.0.1:8000/docs/";
 
   const [docs, setDocs] = useState([{}]);
 

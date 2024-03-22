@@ -2,8 +2,8 @@ import React, {useState,useEffect} from 'react'
 import PostItem from './Post Item/PostItem'
 
 export default function DebugStress() {
-  // const url = 'https://mink-keen-equally.ngrok-free.app/posts/';
-  const url = 'http://127.0.0.1:8000/posts/';
+  const url = 'https://mink-keen-equally.ngrok-free.app/posts/';
+  // const url = 'http://127.0.0.1:8000/posts/';
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);

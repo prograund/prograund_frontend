@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function MyProfile() {
   const user_id = sessionStorage.getItem('sessionId')
   
-  const url = `http://127.0.0.1:8000/users/`
+  const url = `http://mink-keen-equally.ngrok-free.app/users/`
 
   const [user, setUser] = useState([{}]);
 
@@ -14,12 +14,12 @@ export default function MyProfile() {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        setUser(data.filter((item) => item.id == user_id)[0]);
+        setUser(data.filter((item) => item.id === user_id)[0]);
       })
       .catch((error) => {
         console.error('Error:', error);
       });
-  }, [user_id]);
+  }, [user_id,url]);
 
 
   return (

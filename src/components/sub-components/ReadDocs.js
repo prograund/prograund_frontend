@@ -7,18 +7,18 @@ export default function ReadDocs() {
 
     const [docs, setDocs] = useState([]);
 
-    const url = `http://127.0.0.1:8000/docs/`;
+    const url = `https://mink-keen-equally.ngrok-free.app/docs/`;
     useEffect(() => {
         fetch(url)
         .then(response => response.json())
         .then(data => {
-            setDocs(data.filter((item) => item.article_id == id));
+            setDocs(data.filter((item) => item.article_id === id));
 
         })
         .catch((error) => {
             console.error('Error:', error);
         });
-    }, []); 
+    }, [id,url]); 
 return (
     <>
         <div>

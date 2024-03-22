@@ -27,8 +27,8 @@ export default function PostItem(props) {
                             <span key={index}>{line}<br /></span> 
                         ))}
                     </p>
-                    {/* <img src={"https://mink-keen-equally.ngrok-free.app/Files/"+image_link} className="col-md-10 m-auto " alt=""/> */}
-                    <img src={"http://127.0.0.1:8000/Files/"+image_link} className="col-md-10 m-auto " alt=""/>
+                    <img src={"https://mink-keen-equally.ngrok-free.app/Files/"+image_link} className="col-md-10 m-auto " alt=""/>
+                    {/* <img src={"http://127.0.0.1:8000/Files/"+image_link} className="col-md-10 m-auto " alt=""/> */}
                     <div className="actions d-flex justify-content-between mx-2 my-2">
                         <button style={{background: "transparent",border: "none"}}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--color-5)" className="bi bi-heart" viewBox="0 0 16 16">

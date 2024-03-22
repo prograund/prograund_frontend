@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function HostDocs() {
-  // const url = 'https://mink-keen-equally.ngrok-free.app/docs/';
-  const url = "http://127.0.0.1:8000/docs/";
+  const url = 'https://mink-keen-equally.ngrok-free.app/docs/';
+  // const url = "http://127.0.0.1:8000/docs/";
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -11,10 +11,10 @@ export default function HostDocs() {
 
     fetch(url, {
       method: "POST",
-      //   headers: {
-      //     "ngrok-skip-browser-warning": "1", // Add this header
-      //     // Include other headers as needed
-      // },
+        headers: {
+          "ngrok-skip-browser-warning": "1", // Add this header
+          // Include other headers as needed
+      },
       body: JSON.stringify({
         user_id: sessionStorage.getItem("sessionId"),
         title: titleArea.innerHTML,
