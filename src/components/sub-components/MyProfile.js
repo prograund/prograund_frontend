@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function MyProfile() {
   const user_id = sessionStorage.getItem('sessionId')
   
-  const url = `http://mink-keen-equally.ngrok-free.app/users/`
+  const url = `https://mink-keen-equally.ngrok-free.app/users/`
 
   const [user, setUser] = useState([{}]);
 
