@@ -14,7 +14,7 @@ const ForgotPassword = () => {
                 "ngrok-skip-browser-warning": "1"
             },
             body: JSON.stringify({
-                email: data.get("email"),
+                email: data.get("email")
             }),
         })
             .then((res) => res.json())
