@@ -2,31 +2,45 @@ import React, {useState,useEffect} from 'react'
 import PostItem from './Post Item/PostItem'
 
 export default function DebugStress() {
-  const url = 'https://mink-keen-equally.ngrok-free.app/posts/';
+  const url = 'https://mink-keen-equally.ngrok-free.app/funny/';
   // const url = 'http://127.0.0.1:8000/posts/';
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const getData = async () => {
-    const response = await fetch(url,{
-      method: 'GET',
-      headers: {
-        "ngrok-skip-browser-warning": "1", // Add this header
-        // Include other headers as needed
+  const [page, setPage] = useState(0);
+  const [postsPerPage] = useState(7);
+  
+  const getData = async (page) => {
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          "ngrok-skip-browser-warning": "1", // Add this header
+          // Include other headers as needed
+        }
+      });
+  
+      // Check if the response is successful
+      if (!response.ok) {
+        console.error(`Error fetching data: HTTP error! status: ${response.status}`);
+        return;
       }
-    
-    });
-    const data = await response.json();
-
-    const maindata = data.filter((item) => item.type === "Funny")
-    setPosts(maindata);
-    setLoading(false);
+  
+      const data = await response.json();
+      const maindata = data.flat();
+      const paginatedPosts = maindata.slice(page * postsPerPage, (page + 1) * postsPerPage);
+      setPosts(paginatedPosts);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
-
+  
+  // now we will call the function to fetch all posts
   useEffect(() => {
-    getData();
-  }, []);
+    getData(page);
+  }, [page]);
+
 
   return (
     <>
@@ -39,7 +53,7 @@ export default function DebugStress() {
       ) : (
         <>
           {posts.map((item) => (
-            (item.type === "Funny")? <div key={item.post_id}><PostItem title={item.title} time={item.uploaded_time} user_id={parseInt(item.user_id)} image_link={item.file}/></div>: null
+            <div key={item.post_id}><PostItem title={item.title} time={item.uploaded_time} user_id={parseInt(item.user_id)} image_link={item.file}/></div>
           ))}
         </>
       )}

@@ -145,11 +145,6 @@ export default function Host() {
               borderRadius: "7px",
             }}
           >
-            <select name="type" className="type-select" required>
-              <option disabled>---Select type of Post---</option>
-              <option value="Professional">Professional</option>
-              <option value="Funny">Funny</option>
-            </select>
             <textarea
               name="title"
               className="w-100"
@@ -188,6 +183,11 @@ export default function Host() {
               Add media file (optional)
             </label>
             <br />
+              <select name="type" className="type-select" required>
+                <option disabled>---Select type of Post---</option>
+                <option value="Professional">Professional</option>
+                <option value="Funny">Funny</option>
+              </select>
             <input
               type="file"
               id="file"

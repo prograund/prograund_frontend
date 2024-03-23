@@ -17,7 +17,7 @@ import Trackings from './components/sub-components/track-components/Trackings';
 
 import Snippets from './components/sub-components/my-profile/Snippets';
 import JoySources from './components/sub-components/my-profile/JoySources';
-import Mentions from './components/sub-components/my-profile/Mentions';
+import MyDocs from './components/sub-components/my-profile/MyDocs';
 
 import Register from './components/sub-components/Register';
 import Main from './components/Main';
@@ -46,7 +46,7 @@ function App() {
                   <Route index element={<Snippets/>}/>
                   <Route path="snippets" element={<Snippets/>}/>
                   <Route path="joy-source" element={<JoySources/>}/>
-                  <Route path="mentions" element={<Mentions/>}/>
+                  <Route path="my-docs" element={<MyDocs/>}/>
                 </Route>
                 <Route path="/host" element={<Host/>}/>
                 <Route path="/read-docs/:id" element={<ReadDocs/>}/>

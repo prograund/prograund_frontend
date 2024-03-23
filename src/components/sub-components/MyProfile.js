@@ -65,8 +65,8 @@ export default function MyProfile() {
             Joy Sources
             <hr className="green my-0"/>
         </Link>
-        <Link style={{fontSize:'17px', marginBottom:'0'}} className='on-hover-green' to="/my-profile/mentions">
-            Mentions
+        <Link style={{fontSize:'17px', marginBottom:'0'}} className='on-hover-green' to="/my-profile/my-docs">
+            Docs
             <hr className="green my-0"/>
         </Link>
       </div>
