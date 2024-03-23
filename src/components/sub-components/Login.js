@@ -11,6 +11,7 @@ export default function Login() {
         const data = new  FormData(e.target);
 
         await fetch(url,{
+            credentials: 'include',
             method: 'POST',
             headers: {
                 "ngrok-skip-browser-warning": "1", // Add this header
