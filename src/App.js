@@ -22,6 +22,7 @@ import MyDocs from './components/sub-components/my-profile/MyDocs';
 import Register from './components/sub-components/Register';
 import Main from './components/Main';
 import Login from './components/sub-components/Login';
+import ForgotPassword from './components/sub-components/ForgotPassword';
 import HostDocs from './components/sub-components/HostDocs';
 import ReadDocs from './components/sub-components/ReadDocs';
 import EditProfile from './components/sub-components/EditProfile';
@@ -59,10 +60,11 @@ function App() {
                   <Route path="trackings" element={<Trackings/>}/>
                 </Route>
                 <Route path="/docs" element={<Docs/>}/>
-                <Route path="*" element={<Dashboard/>}/>
+                {/* <Route path="*" element={<Dashboard/>}/> */}
                 </Route>
               <Route path="/register" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/forgot-password" element={<ForgotPassword/>}/>
             </Routes>
       </Router>
     </>
