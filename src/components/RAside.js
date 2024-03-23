@@ -1,10 +1,45 @@
 import React from 'react'
+import { useState,useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import defaultImage from '../assets/profile.png';
 
 export default function RAside() {
   const logout = () => {
     sessionStorage.removeItem("sessionId");
     window.location = "/login";
   }
+  const user_id = parseInt(sessionStorage.getItem('sessionId'));
+  
+  const url = `https://mink-keen-equally.ngrok-free.app/users/`
+
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetch(url,{
+      method: 'GET',
+      headers: {
+        "ngrok-skip-browser-warning": "1", // Add this header
+        // Include other headers as needed
+      }
+    
+    })
+      .then(response => response.json())
+      .then(data => {
+        const filteredUsers = data.filter((item) => item.id === user_id);
+        if (filteredUsers.length > 0) {
+          setUser(filteredUsers[0]);
+        } else {
+          console.error('User not found');
+          // Optionally set user to null or keep the existing state
+          // setUser(null);
+        }
+      
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, [user_id,url]);
+
   return (
     <>
         <div className="raside fixed-right r-0 col-md-3 p-0">
@@ -18,15 +53,15 @@ export default function RAside() {
                   </button>
                 </div>
             </div>
-            <div className="container d-flex justify-content-end px-5">
-            <button className='btn not-in-mobile p-2 text-center' onClick={logout} style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px"}}>Logout</button>
-
-            </div>
             <div className="not-in-mobile">
                 <div className="card m-4 rounded-lg profile">
-                    <img src="https://cdn.dribbble.com/users/5534/screenshots/14230133/profile_4x.jpg" alt=""/>
-                    <h4>ProGraund</h4>
-                    <p>A Space only for programmers</p>
+                  <div className="profile-img">
+
+                    <img src={user.image? "https://mink-keen-equally.ngrok-free.app/Files/"+user.image : defaultImage} alt="" />
+                  </div>
+                    <h4>{user.username}</h4>
+            <button className='btn not-in-mobile p-2 text-center' onClick={logout} style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",width:'145px',margin:'5px auto'}}>Logout</button>
+            <Link className='btn not-in-mobile p-2 text-center' style={{backgroundColor: "var(--color-3)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",width:'145px',margin:'5px auto'}} to="/edit-profile">Edit Profile</Link>
                 </div>
             </div>
         </div>

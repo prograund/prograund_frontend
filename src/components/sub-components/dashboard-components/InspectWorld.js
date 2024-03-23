@@ -39,7 +39,7 @@ export default function InspectWorld() {
       ) : (
         <>
           {posts.map((item) => (
-            <div key={item.post_id}><PostItem title={item.title} image_link={item.file} /></div>
+            <div key={item.post_id}><PostItem title={item.title} user_id={parseInt(item.user_id)} time={item.uploaded_time} image_link={item.file} /></div>
           ))}
         </>
       )}
