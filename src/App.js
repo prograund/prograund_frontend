@@ -22,6 +22,7 @@ import Mentions from './components/sub-components/my-profile/Mentions';
 import Register from './components/sub-components/Register';
 import Main from './components/Main';
 import Login from './components/sub-components/Login';
+import ForgotPassword from './components/sub-components/ForgotPassword';
 import HostDocs from './components/sub-components/HostDocs';
 import ReadDocs from './components/sub-components/ReadDocs';
 
@@ -61,6 +62,7 @@ function App() {
                 </Route>
               <Route path="/register" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/forgot-password" element={<ForgotPassword/>}/>
             </Routes>
       </Router>
     </>
