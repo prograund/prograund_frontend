@@ -6,33 +6,114 @@ import moment from 'moment';
 
 
 export default function PostItem(props) {
-    let { title, image_link, user_id, time } = props;
+    let { title, image_link, user_id, post_id, time } = props;
 
     const url = `https://foolish-moth-88.telebit.io/users/`;
+    const likeUrl = `https://foolish-moth-88.telebit.io/likes/`;
 
+    
     const [user, setUser] = useState({});
+    const [liked, setLiked] = useState(false);
+   
+
+    const Like = () => {
+        fetch(likeUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+                post_id: post_id,
+                user_id: parseInt(sessionStorage.getItem('sessionId'))
+            })
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    setLiked(!liked);
+                }
+            });
+    };
+
+
+    const trackUrl = `https://foolish-moth-88.telebit.io/trackers/`;
+
+    const Track = () => {
+        fetch(trackUrl, {
+            method: 'POST',
+            body: JSON.stringify({
+                user_id: user_id,
+                tracked_by: parseInt(sessionStorage.getItem('sessionId'))
+            })
+        })
+
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    setLiked(!liked);
+                }
+            });
+    };
+
+    const unTrack = () => {
+        
+    }
+
+
+
 
     useEffect(() => {
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                "ngrok-skip-browser-warning": "1", // Add this header
-                // Include other headers as needed
+        const checkLikeByUser = async () => {
+            try {
+                const response = await fetch(likeUrl, {
+                    method: 'GET',
+                    headers: {
+                        "ngrok-skip-browser-warning": "1", // Add this header
+                        // Include other headers as needed
+                    }
+                });
+                const data = await response.json();
+                const filteredLikes = data.filter((item) => item.post_id == post_id && item.user_id == parseInt(sessionStorage.getItem('sessionId')));
+                if (filteredLikes.length > 0) {
+                    setLiked(true);
+                } else {
+                    setLiked(false);
+                }
+            } catch (error) {
+                console.error('Error:', error);
             }
-        })
-            .then(response => response.json())
-            .then(data => {
+        }
+
+        checkLikeByUser();
+        const fetchUserDetails = async () => {
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        "ngrok-skip-browser-warning": "1", // Add this header
+                        // Include other headers as needed
+                    }
+                });
+                const data = await response.json();
                 const filteredUsers = data.filter((item) => item.id === parseInt(user_id));
                 if (filteredUsers.length > 0) {
                     setUser(filteredUsers[0]);
                 } else {
                     console.error('User not found');
                 }
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('Error:', error);
-            });
+            }
+        };
+
+        fetchUserDetails();
+
     }, [user_id, url]);
+
+
 
     return (
         <>
@@ -41,7 +122,7 @@ export default function PostItem(props) {
                     <div className="d-flex">
                         <img src={user.image? "https://foolish-moth-88.telebit.io/Files/"+user.image : profile} alt="" style={{ width: "60px", height: "60px", borderRadius: "50%", marginRight: "15px", border: "2px solid var(--color-4)" }} />
                         <div className="user-info">
-                            <h5 className="m-0" >{user.username?user.username:"ProGraund User"}</h5>
+                            <h5 className="m-0" >{user.username?user.username:" "}</h5>
                             <p className="m-0">{
                                 time !== null ? moment(time).fromNow() : "Just now"
                             }</p>
@@ -49,7 +130,7 @@ export default function PostItem(props) {
                         </div>
                     </div>
                     <div className="tracker">
-                        <button style={{ color: "var(--color-1)", backgroundColor: "var(--color-4)", border: "none", outline: "none", borderRadius: "5px", padding: "8px", }}>
+                        <button style={{ color: "var(--color-1)", backgroundColor: "var(--color-4)", border: "none", outline: "none", borderRadius: "5px", padding: "8px", }} onClick={Track}>
                             <h6 style={{ fontWeight: '800', marginBottom: '0', fontFamily: 'fira code' }}><b>TRACK</b></h6>
                         </button>
                     </div>
@@ -60,9 +141,8 @@ export default function PostItem(props) {
                     ))}
                 </p>
                 {image_link == null || <img src={"https://foolish-moth-88.telebit.io/Files/" + image_link} className="col-md-10 m-auto " alt="" />}
-                {/* <img src={"http://127.0.0.1:8000/Files/"+image_link} className="col-md-10 m-auto " alt=""/> */}
                 <div className="actions d-flex justify-content-between mx-2 my-2">
-                    <button style={{ background: "transparent", border: "none" }}>
+                <button className={liked ? "liked" : ""} style={{ background: "transparent", border: "none", color: liked ? "red" : "var(--color-5)" }} onClick={Like}  disabled={liked}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="var(--color-5)" className="bi bi-heart" viewBox="0 0 16 16">
                             <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                         </svg>

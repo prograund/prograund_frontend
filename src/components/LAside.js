@@ -20,7 +20,7 @@ export default function LAside() {
                             {'{ }'}
                     </button>
                 <div className="main-image p-0 pl-4" style={{boxSizing:"border-box"}}>
-                    <Logo color="#29b8db" />
+                    <Logo color="var(--color-5)" />
                 </div>
                     </div>
             <nav id="sidebarMenu" className="main-sidebar-to-close col-md-9 m-auto d-md-block bg-light sidebar collapse">

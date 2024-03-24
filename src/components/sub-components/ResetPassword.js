@@ -1,45 +1,93 @@
-import React from 'react';
-import logo from "../../assets/logo.png";
+import React from 'react'
+import { useState } from 'react';
 
-const ResetPassword = () => {
+export default function ResetPassword() {
+    const url = "https://foolish-moth-88.telebit.io/users/";
 
-    return (
-        <>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style
-            dangerouslySetInnerHTML={{
-                __html:
-                    ":root{--color-1: #0f0021;\n    --color-2: #00002c;\n    --color-3: #fcb045;\n    --color-4: #23d18b;\n    --color-5: #29b8db;\n\n    --background-gradient: linear-gradient(to bottom right, var(--color-1), var(--color-2),#0A2E58,#155C84, #1F8AAF, var(--color-5));\n}\n*{\n    font-family: roboto;\n}\n::-webkit-scrollbar{\n    display: none;\n}\n.container-fluid{ width:100%;  background: var(--background-gradient);\n}\n.container-fluid{\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    height: 100%;\n}\nimg{\n    width: 300px;\n}\n.register-card{    background-color: var(--color-2);\n    border-radius: 10px;\n    padding: 20px;\n}\n.input{\n    width: 38%;\n    border-radius: 5px;\n    border: 2px solid white;\n    background-color: transparent;\n    color: white;\n    font-size: 15px;\n    padding: 10px;\n    margin: 10px;\n    \n}\ninput::placeholder{\n    color: rgb(148, 148, 148);\n}\n.input:focus, select:focus{\n border:1px solid white;outline: none;\n}\nh1{\n    color: white;\n    text-align: center;\n    margin: 10px;\n    font-size: 40px;\n}\ninput::-webkit-outer-spin-button,\ninput::-webkit-inner-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n\ninput[type=submit]{\n    background-color: var(--color-4);\n    color: white;\n    border: none;\n    padding: 10px;\n    border-radius: 5px;\n    margin: 10px;\n    cursor: pointer;\n    width: 15rem;\n}\ninput[type=submit]:hover{\n    background-color: var(--color-3);\n    transition: background-color 0.9s;\n}\nform{\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.input-group-self{\n    width: 100%;\n    display: flex;\n    justify-content: center;\n}\n@media screen and (max-width: 600px){\n    .input-group-self{\n        flex-direction: column;\n        margin: auto;\n    }\n    .input{\n        width: 80%;\n        margin: 10px auto;\n    }\n    .container-fluid{\n           }\n}\n    "
-            }}
-        />
+    const [user, setUser] = useState({});
 
-        <div className="container-fluid d-flex flex-column justify-content-center align-items-center" style={{ height: '100vh' }}>
-            <img src={logo} alt="" />
-            <div className="register-card col-md-4">
-                <h1>Forgot Password</h1>
-                <form>
+    const checkPassword = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
 
-                    <div className="d-flex justify-content-center align-items-center flex-column w-100">
-                        <input className="input"
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            required
-                            style={{ width: '70%' }}
-                        />
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    "ngrok-skip-browser-warning": "1",
+                },
+            });
+            const data = await response.json();
+
+            // filter the user with the id and check if the password is correct
+            const filteredUser = data.filter((item) => item.id === parseInt(sessionStorage.getItem("sessionId")))[0];
+
+            if (filteredUser.password === formData.get("old-password")) {
+                await changePassword(e);
+            } else {
+                alert('Old Password is incorrect');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const changePassword = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        try {
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "ngrok-skip-browser-warning": "1", // Add this header
+                    // Include other headers as needed
+                },
+                body: JSON.stringify({
+                    id: sessionStorage.getItem("sessionId"),
+                    password: formData.get("password"),
+                }),
+            });
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.error);
+            } else {
+                alert('Password Changed Successfully');
+                window.location = '/dashboard';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+        
+  return (
+    <>
+    <h1 className="mt-3 mx-3">Reset Password</h1>
+        <hr style={{backgroundColor: "var(--color-5)",height: "2px",border: "none",borderRadius: "10px",margin: "0",marginBottom:'15px'}} />
+        <div className="container">
+            <div className="row">
+            <div className="col-md-6 mx-auto">
+                <div className=" card-body">
+                <form onSubmit={checkPassword}>
+                    <div className="form-group mb-3">
+                    <label htmlFor="old-password">Old Password</label>
+                    <input type="password" name="old-password" className="form-control" style={{backgroundColor:'var(--color-2)',border:'none',outline:'none',color:'var(--color-5)'}} required />
                     </div>
-                    <input
-                        type="submit"
-                        name="submit"
-                        className="login input login-submit"
-                        value="Send Recovery Link"
-                    />
+                    <div className="form-group mb-3">
+                    <label htmlFor="password">New Password</label>
+                    <input type="password" name="password" className="form-control" style={{backgroundColor:'var(--color-2)',border:'none',outline:'none',color:'var(--color-5)'}} required />
+                    </div>
+                    <div className="form-group mb-3">
+                    <label htmlFor="password">Confirm Password</label>
+                    <input type="password" name="password" className="form-control" style={{backgroundColor:'var(--color-2)',border:'none',outline:'none',color:'var(--color-5)'}} required />
+                    </div>
+                    <button type="submit" className="btn btn-block" style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",margin:'5px auto'}}>Reset Password</button>
                 </form>
+                </div>
+            </div>
             </div>
         </div>
     </>
-    );
-};
-
-export default ResetPassword;
+  )
+}

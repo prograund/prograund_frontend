@@ -26,6 +26,7 @@ import ForgotPassword from './components/sub-components/ForgotPassword';
 import HostDocs from './components/sub-components/HostDocs';
 import ReadDocs from './components/sub-components/ReadDocs';
 import EditProfile from './components/sub-components/EditProfile';
+import ResetPassword from './components/sub-components/ResetPassword';
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
                   <Route path="my-docs" element={<MyDocs/>}/>
                 </Route>
                 <Route path="/host" element={<Host/>}/>
+                <Route path="/reset-password" element={<ResetPassword/>}/>
                 <Route path="/read-docs/:id" element={<ReadDocs/>}/>
                 <Route path="/host-doc" element={<HostDocs/>}/>
                 <Route path="/edit-profile" element={<EditProfile/>}/>

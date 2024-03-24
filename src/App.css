@@ -8,10 +8,11 @@
   --color-5: #29b8db;
   --color-6: #03a4cd;
 
-/* 
+
   --color-8: rgb(117, 79, 229);
   --color-9: rgb(165, 72, 196);
-  --color-7: rgb(213, 65, 162); */
+  --color-7: rgb(54, 0, 35);
+  --color-7: rgb(213, 65, 162);
 
 
   --story-line: linear-gradient(to right, var(--color-3), var(--color-4));
@@ -33,6 +34,11 @@ div{
   font-family: Fira Code!important;
   letter-spacing: 0;
   font-weight: 600;
+}
+
+
+.liked svg {
+  fill: red;
 }
 
 
