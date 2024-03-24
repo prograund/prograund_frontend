@@ -3,7 +3,7 @@ import PostItem from '../dashboard-components/Post Item/PostItem'
 import { useState, useEffect } from 'react'
 
 export default function Snippets() {
-  const url = "https://mink-keen-equally.ngrok-free.app/posts/";
+  const url = "https://foolish-moth-88.telebit.io/posts/";
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -10,7 +10,7 @@ export default function RAside() {
   }
   const user_id = parseInt(sessionStorage.getItem('sessionId'));
   
-  const url = `https://mink-keen-equally.ngrok-free.app/users/`
+  const url = `https://foolish-moth-88.telebit.io/users/`
 
   const [user, setUser] = useState({});
 
@@ -57,7 +57,7 @@ export default function RAside() {
                 <div className="card m-4 rounded-lg profile">
                   <div className="profile-img">
 
-                    <img src={user.image? "https://mink-keen-equally.ngrok-free.app/Files/"+user.image : defaultImage} alt="" />
+                    <img src={user.image? "https://foolish-moth-88.telebit.io/Files/"+user.image : defaultImage} alt="" />
                   </div>
                     <Link to='/my-profile' style={{textDecoration:'none',color:'var(--color-)'}}><h4>{user.username}</h4></Link>
             <button className='btn not-in-mobile p-2 text-center' onClick={logout} style={{backgroundColor: "var(--color-4)",color: "var(--color-1)",borderRadius: "5px",fontSize: "17px",marginTop: "10px",width:'145px',margin:'5px auto'}}>Logout</button>

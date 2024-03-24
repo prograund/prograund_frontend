@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import DocsItem from '../docs-component/DocsItem';
 
 export default function MyDocs() {
-  const url = "https://mink-keen-equally.ngrok-free.app/docs/";
+  const url = "https://foolish-moth-88.telebit.io/docs/";
   // const url = "http://127.0.0.1:8000/docs/";
 
   const [docs, setDocs] = useState([{}]);

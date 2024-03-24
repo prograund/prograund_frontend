@@ -8,7 +8,7 @@ import banner from "../../assets/banner.png"
 export default function MyProfile() {
   const user_id = parseInt(sessionStorage.getItem('sessionId'));
   
-  const url = `https://mink-keen-equally.ngrok-free.app/users/`
+  const url = `https://foolish-moth-88.telebit.io/users/`
 
   const [user, setUser] = useState({});
 
@@ -43,10 +43,10 @@ export default function MyProfile() {
     <>
     
       <div>
-        <img src={user.banner?"https://mink-keen-equally.ngrok-free.app/Files/"+user.banner:banner } alt='test' style={{width: '100%'}}></img>
+        <img src={user.banner?"https://foolish-moth-88.telebit.io/Files/"+user.banner:banner } alt='test' style={{width: '100%'}}></img>
       </div>
       <div className='d-flex justify-content-evenly' style={{marginBottom:'-20px'}}>
-        <img src={user.image?"https://mink-keen-equally.ngrok-free.app/Files/"+user.image:profile} alt="" style={{width:'110px',height:'110px',borderRadius:'50%',position:'relative',top:'-55px',marginLeft:'20px',border:'2px solid var(--color-4)'}}/>
+        <img src={user.image?"https://foolish-moth-88.telebit.io/Files/"+user.image:profile} alt="" style={{width:'110px',height:'110px',borderRadius:'50%',position:'relative',top:'-55px',marginLeft:'20px',border:'2px solid var(--color-4)'}}/>
         <div className="mx-3 user-data">
         <h3 className='mb-0 mt-1'>{user.fname || 'ProGraund User'} {user.lname || ''}</h3>
         <h6>{user.username || 'Username'}</h6>

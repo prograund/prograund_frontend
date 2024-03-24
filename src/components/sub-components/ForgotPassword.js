@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     const sendRecoveryLink = async (e) => {
         const data = new FormData(e.target);
         e.preventDefault();
-        const url = "https://mink-keen-equally.ngrok-free.app/forgot-password/";
+        const url = "https://foolish-moth-88.telebit.io/forgot-password/";
         await fetch(url, {
             method: 'POST',
             headers: {

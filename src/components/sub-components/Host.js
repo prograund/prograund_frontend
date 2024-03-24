@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 export default function Host() {
-  const url = "https://mink-keen-equally.ngrok-free.app/posts/";
-  const fileUrl = "https://mink-keen-equally.ngrok-free.app/posts/savefile";
+  const url = "https://foolish-moth-88.telebit.io/posts/";
+  const fileUrl = "https://foolish-moth-88.telebit.io/posts/savefile";
   
   // const url = "http://127.0.0.1:8000/posts/";
   // const fileUrl = "http://127.0.0.1:8000/posts/savefile";

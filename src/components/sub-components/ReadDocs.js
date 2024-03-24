@@ -7,7 +7,7 @@ export default function ReadDocs() {
 
     const [docs, setDocs] = useState([{}]);
 
-    const url = `https://mink-keen-equally.ngrok-free.app/docs/`;
+    const url = `https://foolish-moth-88.telebit.io/docs/`;
     useEffect(() => {
         fetch(url,{
             method: 'GET',

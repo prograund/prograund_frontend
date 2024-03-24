@@ -8,7 +8,7 @@ import moment from 'moment';
 export default function PostItem(props) {
     let { title, image_link, user_id, time } = props;
 
-    const url = `https://mink-keen-equally.ngrok-free.app/users/`;
+    const url = `https://foolish-moth-88.telebit.io/users/`;
 
     const [user, setUser] = useState({});
 
@@ -39,7 +39,7 @@ export default function PostItem(props) {
             <div className="post p-3 card col-md-10 col-sm-12 m-auto" style={{ borderRadius: "20px", backgroundColor: "var(--color-2)" }}>
                 <div className="" style={{ display: "flex", justifyContent: "space-between" }}>
                     <div className="d-flex">
-                        <img src={user.image? "https://mink-keen-equally.ngrok-free.app/Files/"+user.image : profile} alt="" style={{ width: "60px", height: "60px", borderRadius: "50%", marginRight: "15px", border: "2px solid var(--color-4)" }} />
+                        <img src={user.image? "https://foolish-moth-88.telebit.io/Files/"+user.image : profile} alt="" style={{ width: "60px", height: "60px", borderRadius: "50%", marginRight: "15px", border: "2px solid var(--color-4)" }} />
                         <div className="user-info">
                             <h5 className="m-0" >{user.username?user.username:"ProGraund User"}</h5>
                             <p className="m-0">{
@@ -59,7 +59,7 @@ export default function PostItem(props) {
                         <span key={index}>{line}<br /></span>
                     ))}
                 </p>
-                {image_link == null || <img src={"https://mink-keen-equally.ngrok-free.app/Files/" + image_link} className="col-md-10 m-auto " alt="" />}
+                {image_link == null || <img src={"https://foolish-moth-88.telebit.io/Files/" + image_link} className="col-md-10 m-auto " alt="" />}
                 {/* <img src={"http://127.0.0.1:8000/Files/"+image_link} className="col-md-10 m-auto " alt=""/> */}
                 <div className="actions d-flex justify-content-between mx-2 my-2">
                     <button style={{ background: "transparent", border: "none" }}>

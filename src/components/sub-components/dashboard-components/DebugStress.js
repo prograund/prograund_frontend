@@ -2,13 +2,13 @@ import React, {useState,useEffect} from 'react'
 import PostItem from './Post Item/PostItem'
 
 export default function DebugStress() {
-  const url = 'https://mink-keen-equally.ngrok-free.app/funny/';
+  const url = 'https://foolish-moth-88.telebit.io/funny/';
   // const url = 'http://127.0.0.1:8000/posts/';
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
-  const [postsPerPage] = useState(7);
+  const [postsPerPage] = useState(20);
   
   const getData = async (page) => {
     try {

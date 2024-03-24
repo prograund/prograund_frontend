@@ -8,7 +8,7 @@ export default function Register() {
 
     const [password, setPassword] = useState('');
     const [cpassword, setCPassword] = useState('');
-    const url = "https://mink-keen-equally.ngrok-free.app/users/";
+    const url = "https://foolish-moth-88.telebit.io/users/";
 
 
     const handlePasswordChange = (e) => {

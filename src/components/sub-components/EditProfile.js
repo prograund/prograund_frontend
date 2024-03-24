@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 export default function EditProfile() {
     const user_id = parseInt(sessionStorage.getItem("sessionId"));
 
-    const url = `https://mink-keen-equally.ngrok-free.app/users/`;
+    const url = `https://foolish-moth-88.telebit.io/users/`;
 
-    const fileUrl = `https://mink-keen-equally.ngrok-free.app/posts/savefile`;
+    const fileUrl = `https://foolish-moth-88.telebit.io/posts/savefile`;
 
 
     const [user, setUser] = useState({
