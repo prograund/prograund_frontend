@@ -1,5 +1,6 @@
 <img src="https://github.com/prograund/prograund/blob/Humanshu-Jaglan/public/logo-main2.svg" align="center">
 
+
 # What is ProGraund?
 ProGraund is an innovative platform tailored for programmers, providing a vibrant space to display projects, express thoughts, and introduce pioneering ideas. It acts as a dedicated hub for the programming community to showcase expertise, exchange insights, and collaborate on cutting-edge tech developments. Through ProGraund, programmers can highlight their skills, connect with peers, and collectively advance the programming field. 
 
